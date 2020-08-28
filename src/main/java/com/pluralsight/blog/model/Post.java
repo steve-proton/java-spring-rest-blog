@@ -20,8 +20,8 @@ public class Post {
     @Version
     private Long version;
 
-    @NotNull
     @Size(min =4, max = 100)
+    @NotNull
     private String title;
 
     @Column(length=1000000)
