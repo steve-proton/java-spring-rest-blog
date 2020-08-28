@@ -1,9 +1,9 @@
 package com.pluralsight.blog.model;
 
+import com.sun.istack.NotNull;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.lang.reflect.Method;
 import java.text.DateFormat;
@@ -17,7 +17,13 @@ public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Version
+    private Long version;
+
+    @NotNull
+    @Size(min =4, max = 100)
     private String title;
+
     @Column(length=1000000)
     @Lob
     private String body;
